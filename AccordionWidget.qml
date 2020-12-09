@@ -51,10 +51,17 @@ Item {
                 cursorShape: Qt.PointingHandCursor
                 onClicked: {
                     root.current = !root.current;
-                    if(root.parent.currentItem !== null)
+                    console.debug(root, root.current, root.title)
+                    if(root.parent.currentItem !== null) {
+                        console.debug(root.parent.currentItem)
+
+                        // Retract the currently expanded option
                         root.parent.currentItem.current = false;
 
-                    root.parent.currentItem = root;
+                        // Reset the root
+                        root.parent.currentItem = root;
+                    }
+
                 }
             }
         }
@@ -62,7 +69,6 @@ Item {
         Rectangle {
             id: container
             Layout.fillWidth: true
-//            anchors.top: bar.bottom
             implicitHeight: root.height - bar.height
             clip: true
             Behavior on implicitHeight {

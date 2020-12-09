@@ -7,7 +7,7 @@ import QtQuick.Controls 2.12
 Window {
     id: window
     width: 640
-    height: 480
+    height: 280
     visible: true
     title: qsTr("Hello World")
     ColumnLayout {
@@ -22,8 +22,24 @@ Window {
         AccordionWidget {
             id: sandboxButton
             title: "Ventilation"
-            Button {
+            ColumnLayout {
                 anchors.fill: parent
+                spacing: 1
+                property var currentItem: null
+                Button {
+                    height: parent.height / 3
+                    text: "Setup Vent"
+                }
+
+                Button {
+                    height: parent.height / 3
+                    text: "Apnea"
+                }
+
+                Button {
+                    height: parent.height / 3
+                    text: "Alarms"
+                }
             }
         }
 
